@@ -49,16 +49,10 @@
             return answer
         }
 
-        const inputField = document.querySelector('#hex_input')
-        const button = document.querySelector('#go_btn')
-        const resultTxt = document.querySelector('#result')
-
-        button.addEventListener('click', ()=> {
+        function activate() {
             console.log('hoho its me the evil button')
         
             const hexIn = inputField.value
-
-            console.log('marco')
 
             try {
                 resultTxt.innerHTML = ('is ' + hexIn + ' pink?<br/>' + isItPink(hexIn))                
@@ -68,9 +62,22 @@
                 resultTxt.innerHTML = 'Oops! That wasn\'t a hex code. Try again and remember the #!'
             }
 
+            document.body.style.background = hexIn;
 
-            console.log('polo')
+        }
+
+        const inputField = document.querySelector('#hex_input')
+        const button = document.querySelector('#go_btn')
+        const resultTxt = document.querySelector('#result')
+
+        inputField.addEventListener('keyup', (event)=> {
+            event.preventDefault()
+            if (event.keyCode === 13) {
+                activate()
+            }   
         })
+
+        button.addEventListener('click', activate)
         
     </script>
 </body>
