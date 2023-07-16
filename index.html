@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IsItPink.com</title>
+</head>
+<body>
+    <div>
+        <h1>IsItPink.com</h1>
+        <h3>Hello! This is my very first coding project :)</h3>
+        <p>Enter any hexcode you want and I will tell you if it's pink or not! (maybe)</p>
+
+        <input type="text" id="hex_input" />
+
+        <button id="go_btn">GO!</button>
+    </div>
+
+
+    <script src="./bundle-min.js"></script>
+
+    <script type="module">
+
+        const reg=/^#([0-9a-f]{3}){1,2}$/i
+
+        function isItPink(hex) {
+            
+            if (!reg.test(hex)){
+                throw new Error('bffr.')
+            }
+
+            const result = namer(hex).basic.find(e => e.name === 'pink')
+
+            const answer = result.distance <= 25 ? 'yes!' : 'no D:'
+
+            console.log('is ' + hex + ' pink?\n', answer)
+            console.log(result.distance)
+        }
+
+        const inputField = document.querySelector('#hex_input')
+        const button = document.querySelector('#go_btn')
+
+        button.addEventListener('click', ()=> {
+            console.log('hoho its me the evil button')
+        
+            const hexIn = inputField.value
+            console.log(hexIn)
+
+                isItPink(hexIn)
+        })
+
+    </script>
+</body>
+</html>

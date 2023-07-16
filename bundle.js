@@ -1,0 +1,1 @@
+const namer = require('color-namer')
