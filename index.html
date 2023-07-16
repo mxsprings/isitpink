@@ -14,6 +14,7 @@
         <input type="text" id="hex_input" />
 
         <button id="go_btn">GO!</button>
+        <h3 id="result"></h3>
     </div>
 
 
@@ -35,20 +36,33 @@
 
             console.log('is ' + hex + ' pink?\n', answer)
             console.log(result.distance)
+
+            return answer
         }
 
         const inputField = document.querySelector('#hex_input')
         const button = document.querySelector('#go_btn')
+        const resultTxt = document.querySelector('#result')
 
         button.addEventListener('click', ()=> {
             console.log('hoho its me the evil button')
         
             const hexIn = inputField.value
-            console.log(hexIn)
 
-                isItPink(hexIn)
+            console.log('marco')
+
+            try {
+                resultTxt.innerHTML = ('is ' + hexIn + ' pink?<br/>' + isItPink(hexIn))                
+            } catch (error) {
+                console.warn('I AM AN ERROR HANDLER', error)
+
+                resultTxt.innerHTML = 'Oops! That wasn\'t a hex code. Try again and remember the #!'
+            }
+
+
+            console.log('polo')
         })
-
+        
     </script>
 </body>
 </html>
