@@ -29,19 +29,6 @@
         p{
             font-weight: 700;
         }
-
-        input[type="text"]{
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid whitesmoke;
-            padding: 5px;
-            border-radius: 5px;
-            color: black;
-            
-        }
-        ::placeholder {
-             color: black;
-        }
-
     </style>
 </head>
 <body>
@@ -49,14 +36,10 @@
         <h1>IsItPink.com</h1>
         <h3>Hello! This is my very first coding project :)</h3>
         <p>Enter any hexcode you want and I will tell you if it's pink or not! (maybe)</p>
-        
-        <input type="text" id="hex_input" placeholder="Enter Hexcode Here..." />
+
+        <input type="text" id="hex_input" />
+
         <button id="go_btn">GO!</button>
-        <br/>
-        <br/>
-        <p>or pick a color here:</p>
-        <input type="color" id="color_pick"/>
-       
         <h3 id="result"></h3>
     </main>
 
@@ -83,9 +66,10 @@
             return answer
         }
 
-        function activate(hexOverride) {
-            
-            const hexIn = hexOverride || inputField.value
+        function activate() {
+            console.log('hoho its me the evil button')
+        
+            const hexIn = inputField.value
 
             try {
                 resultTxt.innerHTML = ('is ' + hexIn + ' pink?<br/>' + isItPink(hexIn))                
@@ -102,7 +86,6 @@
         const inputField = document.querySelector('#hex_input')
         const button = document.querySelector('#go_btn')
         const resultTxt = document.querySelector('#result')
-        const colorPick = document.querySelector('#color_pick')
 
         inputField.addEventListener('keyup', (event)=> {
             event.preventDefault()
@@ -113,8 +96,6 @@
 
         button.addEventListener('click', activate)
         
-        colorPick.addEventListener('input', (event) => activate(event.target.value))
-
     </script>
 </body>
 </html>
