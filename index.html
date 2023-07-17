@@ -7,6 +7,7 @@
 
     <style>
         body {
+            display:flex;
             background: #e75480;
             text-align: center;
             color: whitesmoke;
@@ -14,7 +15,6 @@
         }
 
         main{
-            /* text-shadow: 1px 1px 0px deeppink */
             text-shadow:
                 -1px -1px 0 deeppink,
                 0   -1px 0 deeppink,
@@ -24,11 +24,44 @@
                 0    1px 0 deeppink,
                 -1px  1px 0 deeppink,
                 -1px  0   0 deeppink;
+
         }
 
         p{
             font-weight: 700;
         }
+
+        html {
+   height: 80%;
+}
+
+            body {
+            display: flex;          /* NEW: IE11, Chrome 29+, Opera 12.1+, Firefox 22+ */
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            }
+
+        input[type="text"]{
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid whitesmoke;
+            padding: 5px;
+            border-radius: 5px;
+            color: black;
+            
+        }
+        ::placeholder {
+             color: black;
+        }
+
+        button[id="go_btn"]{
+            background: rgba(255, 255, 255, 0.5);
+            border: 2px solid whitesmoke;
+            padding: 5px;
+            border-radius: 5px;
+            color: black;
+        }
+
     </style>
 </head>
 <body>
@@ -37,7 +70,7 @@
         <h3>Hello! This is my very first coding project :)</h3>
         <p>Enter any hexcode you want and I will tell you if it's pink or not! (maybe)</p>
 
-        <input type="text" id="hex_input" />
+        <input type="text" id="hex_input" placeholder="Enter Hexcode Here..."/>
 
         <button id="go_btn">GO!</button>
         <h3 id="result"></h3>
@@ -67,7 +100,6 @@
         }
 
         function activate() {
-            console.log('hoho its me the evil button')
         
             const hexIn = inputField.value
 
